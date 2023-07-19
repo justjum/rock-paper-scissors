@@ -77,29 +77,46 @@ function playRound(playerSelection, computerSelection) {
 //write a funcion game() which plays out three rounds, tabling the results to declare a winner
 
 
-function game() {
-    let computer = 0
-    let player = 0
-    let x = 1
+//function game() {
+    //let computer = 0
+    //let player = 0
+    //let x = 1
     // for statement to play out five rounds
-    for (x; x <= 5; x++) {
+    //for (x; x <= 5; x++) {
         //playround function, prompting for user input, randomly generating new computer choice
-        playRound(prompt("Rock, Paper, or Scissors?"), getComputerChoice())
+        //playRound(playerSelection, getComputerChoice())
         //feed in return "result" from playround, increment score.
+        
+    //}
+    //alert final score after playing out five rounds
+    //alert(`Player=${player}    Computer=${computer}`)
+
+
+
+
+const selections = document.querySelectorAll('.selection');
+console.log(selections);
+
+selections.forEach((selection) => {
+    selection.addEventListener('click', function (e) {
+        console.log(e.target.id)
+        playRound(e.target.id, getComputerChoice());
         if (result === 'win') {
             player++;
-            console.log(`${player} - ${computer}`)
+            const score = document.querySelector('#player');
+            score.textContent = `${player}`;
+            console.log(`${player} - ${computer}`);
         }
         else if (result === 'loss') {
             computer++;
-            console.log(`${player} - ${computer}`)
+            const score = document.querySelector('#computer');
+            score.textContent = `${computer}`;
+            console.log(`${player} - ${computer}`);
         }
-    }
-    //alert final score after playing out five rounds
-    alert(`Player=${player}    Computer=${computer}`)
-}
+    });
+});
 
-game();
+//game();
 
 
 
