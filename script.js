@@ -97,26 +97,58 @@ function playRound(playerSelection, computerSelection) {
 const selections = document.querySelectorAll('.selection');
 console.log(selections);
 
-selections.forEach((selection) => {
-    selection.addEventListener('click', function (e) {
-        console.log(e.target.id)
-        playRound(e.target.id, getComputerChoice());
-        if (result === 'win') {
-            player++;
-            const score = document.querySelector('#player');
-            score.textContent = `${player}`;
-            console.log(`${player} - ${computer}`);
-        }
-        else if (result === 'loss') {
-            computer++;
-            const score = document.querySelector('#computer');
-            score.textContent = `${computer}`;
-            console.log(`${player} - ${computer}`);
-        }
-    });
-});
+function game() {
 
-//game();
+if (player === 5 || computer === 5) {
+    return;
+}
+
+else {
+    selections.forEach((selection) => {
+        selection.addEventListener('click', function (e) {
+            console.log(e.target.id)
+            if (player === 5 || computer === 5) {
+                gameOver();
+            }
+            else {
+                playRound(e.target.id, getComputerChoice());
+                if (result === 'win') {
+                    player++;
+                    const score = document.querySelector('#player');
+                    score.textContent = `${player}`;
+                    console.log(`${player} - ${computer}`);
+                }
+                else if (result === 'loss') {
+                    computer++;
+                    const score = document.querySelector('#computer');
+                    score.textContent = `${computer}`;
+                    console.log(`${player} - ${computer}`);
+                }
+
+                if (player === 5) {
+                    console.log(`You are the champion!`);
+                    return;
+                }
+                else if (computer === 5) {
+                    console.log('You have been defeated!');
+                    return;
+                }
+            }
+
+            
+        });
+    });
+
+}
+}
+
+function gameOver() {
+    const reset = document.querySelector('#reset');
+    reset.setAttribute("style", 'visibility: visible;');
+}
+
+game();
+
 
 
 

@@ -1,0 +1,31 @@
+* {
+    background-color: rgb(221, 221, 142);
+}
+
+.rock-paper-scissors {
+    padding: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.results {
+    display: flex;
+    justify-content: center;
+    align-items: space-between;
+    gap: 30px;
+}
+
+#reset {
+    visibility: hidden;
+    width: 200px;
+    height: auto;
+    font-size: 20px;
+}
+
