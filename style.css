@@ -1,5 +1,6 @@
 * {
     background-color: rgb(221, 221, 142);
+    font-family:'Courier New', Courier, monospace
 }
 
 .rock-paper-scissors {
@@ -8,11 +9,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 
 .buttons {
     display: flex;
     justify-content: center;
+    gap: 10px;
 }
 
 .results {
@@ -20,6 +23,13 @@
     justify-content: center;
     align-items: space-between;
     gap: 30px;
+}
+
+.result {
+    font-size: 40px;
+    font-weight: 900;
+    width: 300;
+    height: auto;
 }
 
 #reset {

@@ -35,36 +35,36 @@ function playRound(playerSelection, computerSelection) {
     
     //nested if statements to check possible combinations.  A draw can be checked in one conditional so it's first. 
     if (playerSelection === computerSelection) {
-        console.log("It's a draw!");
+        resultPrint(`It's a draw!`);
         return (result = 'draw');
     }
     else if (playerSelection === 'rock') {
         if (computerSelection === 'paper') {
-            console.log("You lose!");
+            resultPrint("You lose!");
             return(result = 'loss')
         }
         else {
-            console.log("Winner");
+            resultPrint("Winner!");
             return(result = 'win')
         }
     }
     else if (playerSelection === 'paper') {
         if (computerSelection === 'scissors') {
-            console.log("You lose!");
+            resultPrint("You lose!");
             return(result = 'loss')
         }
         else {
-            console.log("Winner!");
+            resultPrint("Winner!");
             return(result = 'win')
         }
     }
     else {
         if (computerSelection === 'rock') {
-            console.log("You lose!");
+            resultPrint("You lose!");
             return(result = 'loss')
         }
         else {
-            console.log("Winner!");
+            resultPrint("Winner!");
             return(result = 'win')
         }
     }
@@ -90,6 +90,9 @@ function playRound(playerSelection, computerSelection) {
     //}
     //alert final score after playing out five rounds
     //alert(`Player=${player}    Computer=${computer}`)
+
+
+
 
 
 
@@ -126,11 +129,13 @@ else {
                 }
 
                 if (player === 5) {
-                    console.log(`You are the champion!`);
+                    resultPrint(`You are the champion!`);
+                    gameOver();
                     return;
                 }
                 else if (computer === 5) {
-                    console.log('You have been defeated!');
+                    resultPrint('You have been defeated!');
+                    gameOver();
                     return;
                 }
             }
@@ -145,6 +150,12 @@ else {
 function gameOver() {
     const reset = document.querySelector('#reset');
     reset.setAttribute("style", 'visibility: visible;');
+    reset.addEventListener('click',  () => {location.reload();});
+}
+
+function resultPrint(result) {
+    const resultUpdate = document.querySelector(`#result`);
+    resultUpdate.textContent = `${result}`;
 }
 
 game();
